@@ -11,7 +11,7 @@ function addAssignment(data) {
     deadline: "2020-04-30 08:32:23"
   }
 
-  return fetch('http://localhost:9999/api/assignments', {
+  return fetch('http://localhost:19999/api/assignments', {
     method: 'post',
     headers: {
       'content-type': 'application/json'

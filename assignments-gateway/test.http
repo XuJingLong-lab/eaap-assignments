@@ -1,4 +1,5 @@
-POST http://localhost:19999/api/assignments
+###
+POST http://{{gateway}}/api/assignments
 Content-Type: application/json
 
 {
@@ -8,19 +9,19 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8080/api/assignments/484e90fd-f20f-4bb9-85f0-86c6ba560756/status
+GET http://{{gateway}}/api/assignments/{{assignmentId}}/status
 
 ###
-PUT http://localhost:19999/api/assignments/publish/feb5949c-23ab-4152-ab4d-36579f2181ad
+PUT http://{{gateway}}/api/assignments/publish/{{assignmentId}}
 
 ###
-POST http://localhost:19999/api/submissions
+POST http://{{gateway}}/api/submissions
 Content-Type: application/json
 
 {
   "code": "printf('hello world');",
-  "assignment": "feb5949c-23ab-4152-ab4d-36579f2181ad"
+  "assignment": "{{assignmentId}}"
 }
 
 ###
-GET http://localhost:19999/api/submissions
+GET http://{{gateway}}/api/submissions
