@@ -1,0 +1,31 @@
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: "assignment management service"
+          uri: http://assignments-management
+          predicates:
+            - Path=/api/assignments,/api/assignments/**
+          filters:
+            - StripPrefix=1
+        - id: "assignment submission service"
+          uri: http://assignments-submission
+          predicates:
+            - Path=/api/submissions
+            - Method=POST
+          filters:
+            - StripPrefix=1
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+server:
+  port: 19999
